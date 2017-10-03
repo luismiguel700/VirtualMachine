@@ -1,0 +1,39 @@
+class TestGC
+{
+	method int main()
+	{
+		locals(int)
+	
+	l0:	empty
+		ldint 100
+		ldint 100
+		mul
+		ldint 1
+		sub
+		stloc 0
+		br l1
+		
+	l1:	empty
+		ldint 100
+		ldint 100
+		mul
+		newarr int
+		pop
+		
+		ldloc 0
+		ldint 1
+		sub
+		stloc 0
+		
+		ldloc 0
+		ldint 0
+		ceq
+		brfalse l1
+		
+		ldloc 0
+		printint
+		
+		ldint 0
+		ret
+	}
+}

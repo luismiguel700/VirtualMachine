@@ -1,0 +1,31 @@
+class ForkWait
+{	
+	method int main()
+	{
+	l0:	empty
+		ldarg 0
+		ldint 1
+		ldint 2
+		fork int f1(int, int)
+		ldarg 0
+		ldint 3
+		ldint 4
+		fork int f1(int, int)
+		wait
+		pop
+		wait
+		printint
+		
+		ldint 0
+		ret
+	}
+	
+	method int f1(int, int)
+	{
+	l0:	empty
+		ldarg 1
+		ldarg 2
+		add
+		ret
+	}
+}

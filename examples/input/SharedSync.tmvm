@@ -1,0 +1,53 @@
+class SharedSync
+{	
+	method int main()
+	{
+	l0:	empty
+		ldarg 0
+		ldint 10
+		ldint 20
+		fork int f1(int, int)
+		ldarg 0
+		ldint 30
+		ldint 40
+		fork int f2(int, int)
+		wait
+		pop
+		wait
+		printint
+		
+		ldint 0
+		ret
+	}
+	
+	method int f1(int, int)
+	{
+	l0:	empty
+		newlock
+		ldarg 0
+		ldarg 1
+		ldarg 2
+		shared int f3(int, int)
+		ret
+	}
+	
+	method int f2(int, int)
+	{
+	l0:	empty
+		newlock
+		ldarg 0
+		ldarg 1
+		ldarg 2
+		sync int f3(int, int)
+		ret
+	}
+	
+	method int f3(int, int)
+	{
+	l0:	empty
+		ldarg 1
+		ldarg 2
+		add
+		ret
+	}
+}

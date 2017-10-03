@@ -1,0 +1,18 @@
+class Prints
+{
+	method int main()
+	{
+	l0:	empty
+		ldint 10
+		printint
+		
+		ldchar ' '
+		printchar
+		
+		ldbool true
+		printbool
+		
+		ldint 0
+		ret
+	}
+}

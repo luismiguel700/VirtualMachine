@@ -1,0 +1,64 @@
+class Factorial
+{
+	method int main()
+	{
+	l0:	empty
+		ldarg 0
+		ldint 5
+		fork int factIter(int)
+		wait
+		printint
+		ldint 0
+		ret
+	}
+	
+	method int factIter(int)
+	{
+		locals(int, int)
+	
+	l0:	empty
+		ldarg 1
+		stloc 0
+		ldint 1
+		stloc 1
+		br l1
+		
+	l1:	empty
+		ldloc 1
+		ldloc 0
+		mul
+		stloc 1	
+		ldloc 0
+		ldint 1
+		sub
+		stloc 0
+		ldloc 0
+		ldint 0
+		cgt
+		not
+		brfalse l1
+		ldloc 1
+		ret
+	}
+	
+	method int factRec(int)
+	{
+	b:	empty
+		ldarg 1
+		ldint 0
+		ceq
+		brfalse g
+		ldint 1
+		ret
+		
+	g:	empty
+		ldarg 1
+		ldarg 0
+		ldarg 1
+		ldint 1
+		sub
+		call int factRec(int)
+		mul
+		ret
+	}
+}

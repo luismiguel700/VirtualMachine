@@ -1,0 +1,13 @@
+class External
+{
+	method int main()
+	{
+	l0: empty
+		newobj Factorial
+		ldint 5
+		call int factIter(int)
+		printint
+		ldint 0
+		ret
+	}
+}

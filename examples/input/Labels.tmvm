@@ -1,0 +1,16 @@
+class Labels
+{
+	method int main()
+	{
+		l0:empty
+		ldint 1
+		newobj Labels
+		br l1
+		
+		l1:{int, Labels}
+		pop
+		printint
+		ldint 0
+		ret
+	}
+}

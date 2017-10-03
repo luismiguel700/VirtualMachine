@@ -1,0 +1,28 @@
+class Arrays
+{	
+	method int main()
+	{	
+		locals(int[])
+		
+	l0:	empty
+		ldint 20
+		newarr int
+		stloc 0
+		
+		ldloc 0
+		ldint 5
+		ldint 50
+		stelem
+		
+		ldloc 0
+		ldint 5
+		ldelem
+		ldloc 0
+		ldlen
+		add
+		printint
+		
+		ldint 0
+		ret
+	}
+}

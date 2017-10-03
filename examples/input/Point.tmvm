@@ -1,0 +1,58 @@
+class Point
+{	
+	field int x;
+	field int y;
+
+	method Point init(int, int)
+	{
+	l0:	empty
+		ldarg 0
+		ldarg 1
+		stfld x
+		
+		ldarg 0
+		ldarg 2
+		stfld y
+		
+		ldarg 0
+		ret
+	}
+	
+	method int getX()
+	{
+	l0: empty
+		ldarg 0
+		ldfld x
+		ret
+	}
+	
+	method int getY()
+	{
+	l0: empty
+		ldarg 0
+		ldfld y
+		ret
+	}
+
+	method int main()
+	{
+		locals(Point)
+	
+	l0: empty
+		newobj Point
+		ldint 7
+		ldint 7
+		call Point init(int, int)
+		stloc 0
+		
+		ldloc 0
+		call int getX()
+		ldloc 0
+		call int getY()	
+		mul
+		printint
+		
+		ldint 0
+		ret
+	}
+}

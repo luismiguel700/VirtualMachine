@@ -1,0 +1,34 @@
+EXECUCAO:
+
+Argumentos para execução do programa: file, classpath e timeGC. 
+O tempo do garbage collector está em milissegundos.
+Exemplo: ./main examples/in/callstat.tmvm examples/in 1
+
+ARQUITECTURA:
+
+Assembler: carrega as classes, métodos e blocos, passando as instruções de texto para bytes
+Compiler: tradutor da linguagem de alto nível para a linguagem intermédia
+Metadata: permite representar internamente as estruturas do programa (classes, métodos, blocos)
+Sructures: estruturas de dados de suporte ao interpretador (frames e heap)
+Util: classes de uso genérico (stack)
+Interpreter: interpreta cada instrução de acordo com a função que lhe está associada
+TypeSystem: semelhante ao interpretador mas apenas verifica a instrução
+
+ESTADO:
+
+É representado pelo ficheiro Runtime.c
+É constítuido por uma conjunto de classes, um conjunto de threads e a heap.
+Cada thread (repretentada pelo metadata/Thread.h) tem associado uma pilha de frames
+Cada frame tem associado um array de argumentos, vars locais, pilha de avaliação, bloco de instruções corrente, etc.
+
+COMO ADICIONAR UMA NOVA INSTRUCAO:
+
+- Adicionar mais uma constante em metadata/Instructions.h
+- Alterar o lexer e o parser (na pasta assembler) de forma a reconhecer e carregar (em memória) a nova instrução
+- Adicionar mais uma posição ao array de funções do interpretador e programar a nova função
+- Repetir o procedimento para o verificador de código
+
+POR FAZER:
+
+- alterar para melhores estruturas de dados (hashtables)
+...

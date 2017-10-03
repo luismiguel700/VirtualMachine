@@ -1,0 +1,38 @@
+class LdlocStloc
+{	
+	method int main()
+	{
+		locals(int, int)
+		
+	l0:	empty
+		ldint 20
+		stloc 0
+		ldint 40
+		stloc 1
+
+		ldarg 0
+		ldloc 0
+		ldloc 1
+		call int f1(int, int)
+		printint
+		
+		ldint 0
+		ret
+	}
+	
+	method int f1(int, int)
+	{
+		locals(int, int)
+		
+	l0:	empty
+		ldarg 1
+		stloc 0
+		ldarg 2
+		stloc 1
+		
+		ldloc 0
+		ldloc 1
+		add
+		ret
+	}
+}

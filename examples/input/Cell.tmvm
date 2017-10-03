@@ -1,0 +1,51 @@
+class Cell<T>
+{
+	field T val;
+
+	method int main()
+	{	
+		l0:empty
+		ldarg 0
+		newobj Cell<int>
+		
+		dup
+		ldint 23
+		call int set(int)
+		pop
+		
+		fork int thread1(Cell<int>)
+		wait
+		
+		dup
+		printint
+		ret
+	}
+	
+	method int thread1(Cell<int>)
+	{
+		l0:empty
+		ldarg 1
+		call int get()
+		ldint 3
+		add
+		ret
+	}
+	
+	method T get()
+	{
+		l0:empty
+		ldarg 0
+		ldfld val
+		ret
+	}
+	
+	method T set(T)
+	{
+		l0:empty
+		ldarg 0
+		ldarg 1
+		stfld val
+		ldarg 1
+		ret
+	}
+}
